@@ -1,0 +1,61 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: growica_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: growica
+      MYSQL_USER: growica_user
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - db_data:/var/lib/mysql
+      - ./db/dump_clean.sql:/docker-entrypoint-initdb.d/dump.sql
+    networks:
+      - web
+
+  php:
+    build:
+      context: .
+      dockerfile: Dockerfile.php
+    container_name: growica_php
+    restart: always
+    volumes:
+      - ./wordpress:/var/www/html
+    command: sh -c "chown -R www-data:www-data /var/www/html || true && php-fpm"
+    networks:
+      - web
+    depends_on:
+      - db
+
+  nginx:
+    image: nginx:latest
+    container_name: growica_nginx
+    depends_on:
+      - php
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./wordpress:/var/www/html
+      - ./docker/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/certs:/etc/nginx/certs
+    networks:
+      - web
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: growica_pma
+    environment:
+      PMA_HOST: db
+    ports:
+      - "8080:80"
+    networks:
+      - web
+
+volumes:
+  db_data:
+
+networks:
+  web:
+    driver: bridge
