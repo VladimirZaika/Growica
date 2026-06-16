@@ -3,27 +3,6 @@
     "title": "[SETTINGS]: Header",
     "fields": [
         {
-            "key": "field_68df92ea55df0",
-            "label": "Body Custom Class",
-            "name": "body_custom_class",
-            "aria-label": "",
-            "type": "text",
-            "instructions": "",
-            "required": 0,
-            "conditional_logic": 0,
-            "wrapper": {
-                "width": "",
-                "class": "",
-                "id": ""
-            },
-            "default_value": "",
-            "maxlength": "",
-            "allow_in_bindings": 0,
-            "placeholder": "",
-            "prepend": "",
-            "append": ""
-        },
-        {
             "key": "field_68df91a859c33",
             "label": "Header Switch",
             "name": "header_switch",
@@ -40,9 +19,59 @@
             "message": "",
             "default_value": 0,
             "allow_in_bindings": 0,
-            "ui_on_text": "Off",
-            "ui_off_text": "On",
+            "ui_on_text": "On",
+            "ui_off_text": "Off",
             "ui": 1
+        },
+        {
+            "key": "field_6a3179c430726",
+            "label": "Header Style",
+            "name": "header_style",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "Center",
+            "ui_off_text": "Left Align",
+            "ui": 1
+        },
+        {
+            "key": "field_68df92ea55df0",
+            "label": "Body Custom Class",
+            "name": "body_custom_class",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68df91a859c33",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "allow_in_bindings": 0,
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
         },
         {
             "key": "field_69243885b4100",
@@ -52,7 +81,15 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_68df91a859c33",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -79,6 +116,11 @@
                         "field": "field_69243885b4100",
                         "operator": "==",
                         "value": "1"
+                    },
+                    {
+                        "field": "field_68df91a859c33",
+                        "operator": "==",
+                        "value": "1"
                     }
                 ]
             ],
@@ -87,14 +129,8 @@
                 "class": "",
                 "id": ""
             },
-            "choices": {
-                "4": "Company Menu",
-                "2": "Header Menu",
-                "19": "Landing Menu",
-                "5": "Policy Menu",
-                "8": "Resources Menu"
-            },
-            "default_value": false,
+            "choices": [],
+            "default_value": 1,
             "return_format": "value",
             "multiple": 0,
             "allow_null": 0,
@@ -141,5 +177,5 @@
     "display_title": "",
     "allow_ai_access": false,
     "ai_description": "",
-    "modified": 1779299534
+    "modified": 1781627490
 }

@@ -155,6 +155,56 @@ function brand_customize_register($wp_customize) {
         'section'  => 'colors',
         'settings' => 'optional_color_1',
     ]));
+
+    // Font controls
+    $wp_customize->add_section('brand_fonts', [
+        'title'    => __('Fonts (Child Theme)', 'brand'),
+        'priority' => 30,
+    ]);
+
+    $wp_customize->add_setting('body_font', [
+        'default'   => 'Inter, sans-serif',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('body_font', [
+        'label'    => __('Body Font', 'brand'),
+        'section'  => 'brand_fonts',
+        'settings' => 'body_font',
+        'type'     => 'select',
+        'choices'  => [
+            'Inter, sans-serif'      => 'Inter',
+            'Roboto, sans-serif'     => 'Roboto',
+            'Raleway, sans-serif'    => 'Raleway',
+            'Montserrat, sans-serif' => 'Montserrat',
+            'Merriweather, serif'    => 'Merriweather',
+            'Georgia, serif'         => 'Georgia',
+        ],
+    ]);
+
+    $wp_customize->add_setting('heading_font', [
+        'default'   => 'Roboto, sans-serif',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control('heading_font', [
+        'label'    => __('Heading Font', 'brand'),
+        'section'  => 'brand_fonts',
+        'settings' => 'heading_font',
+        'type'     => 'select',
+        'choices'  => [
+            'Inter, sans-serif'      => 'Inter',
+            'Roboto, sans-serif'     => 'Roboto',
+            'Raleway, sans-serif'    => 'Raleway',
+            'Montserrat, sans-serif' => 'Montserrat',
+            'Merriweather, serif'    => 'Merriweather',
+            'Georgia, serif'         => 'Georgia',
+        ],
+    ]);
+
+    if ( $wp_customize->get_section( 'colors' ) ) {
+        $wp_customize->get_section( 'colors' )->title = __( 'Colors (Child Theme)', 'brand' );
+    }
 }
 
 add_action('customize_register', 'brand_customize_register');

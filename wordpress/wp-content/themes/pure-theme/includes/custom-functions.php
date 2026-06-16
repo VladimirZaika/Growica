@@ -239,39 +239,3 @@ function brand_render_custom_header() {
 function brand_render_custom_footer() {
     get_template_part( 'template-parts/footer/footer' );
 }
-
-/**
- * Remove GeneratePress customizer panels/sections we don't need
- * Keeps core `colors` section intact for our custom controls.
- */
-add_action( 'customize_register', 'brand_remove_generatepress_customizer', 20 );
-function brand_remove_generatepress_customizer( $wp_customize ) {
-    // explicit ids to remove (common GeneratePress ids)
-    $remove_ids = [
-        'generate_colors', 'generate_typography', 'generate_fonts',
-        'generatepress_colors', 'generatepress_typography', 'generatepress_fonts',
-        'typography', 'fonts'
-    ];
-
-    foreach ( $remove_ids as $id ) {
-        if ( $wp_customize->get_section( $id ) ) {
-            $wp_customize->remove_section( $id );
-        }
-        if ( $wp_customize->get_panel( $id ) ) {
-            $wp_customize->remove_panel( $id );
-        }
-    }
-
-    // remove any remaining sections/panels that belong to GeneratePress
-    foreach ( $wp_customize->sections() as $id => $section ) {
-        if ( strpos( $id, 'generate' ) !== false && $id !== 'colors' ) {
-            $wp_customize->remove_section( $id );
-        }
-    }
-
-    foreach ( $wp_customize->panels() as $id => $panel ) {
-        if ( strpos( $id, 'generate' ) !== false ) {
-            $wp_customize->remove_panel( $id );
-        }
-    }
-}

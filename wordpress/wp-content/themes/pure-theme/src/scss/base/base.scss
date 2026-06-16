@@ -28,7 +28,7 @@ html {
 } 
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--body-font);
     font-size: rem(16);
     background-color: var(--body-color-brand);
     color: var(--text-color-brand);
@@ -87,7 +87,7 @@ select {
 }
 
 label {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--body-font);
     font-size: rem(14);
     font-weight: 500;
 }
@@ -144,7 +144,7 @@ a {
 .button,
 a.button {
     @include flex_center;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--body-font);
     color: var(--text-color-brand);
     font-size: rem(16);
     font-weight: 600;
@@ -325,7 +325,7 @@ a.button {
     }
 
     &.button-filter {
-        font-family: 'Roboto', sans-serif;
+        font-family: var(--body-font);
         @include flex_center;
         padding: rem(13) rem(17);
         background-color: var(--secondary-color-brand-25);
@@ -449,7 +449,7 @@ a.button {
 }
 
 .link {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--body-font);
     color: var(--secondary-color-brand);
     font-weight: 600;
     line-height: 1;
@@ -670,7 +670,7 @@ section {
     -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--body-font);
     color: var(--text-color-brand-75);
     font-size: rem(14);
     line-height: 140%;
@@ -695,7 +695,7 @@ section {
         }
 
         a {
-            font-family: 'Roboto', sans-serif;
+            font-family: var(--body-font);
         }
         
         span {
@@ -783,7 +783,7 @@ section {
 
 .input-message {
     margin-top: rem(4);
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--body-font);
     font-size: rem(14);
     line-height: rem(20);
     font-weight: 400;

@@ -29,6 +29,16 @@ main {
 	display: block;
 }
 
+.wrapper {
+	article {
+		background-color: transparent;
+
+		.inside-article {
+			background-color: transparent;
+		}
+	}
+}
+
 h1,
 h2,
 h3,

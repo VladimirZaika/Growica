@@ -1,5 +1,5 @@
 document.addEventListener( 'DOMContentLoaded', () => {
-    class stickyHeader {
+    class stickyHeaderBrand {
         constructor(headerSelector) {
             this.navbar = document.querySelector(headerSelector);
             this.lastScrollTop = 0;
@@ -36,7 +36,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
     };
 
     if (document.querySelector('header')) {
-        new stickyHeader('.header');
+        new stickyHeaderBrand('.header');
 
         let header = document.querySelector('header');
         let hasChildrenItem = header.querySelectorAll('.menu-item-has-children');

@@ -25,31 +25,6 @@
 		background: linear-gradient(to right, transparent, var(--text-color-brand), transparent);
 	}
 
-	&::after {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 40%;
-        height: rem(32);
-        background: transparent;
-        transform: skewX(-35deg);
-        z-index: 2;
-        border-width: rem(2);
-        border-color: var(--optional-color-brand-1);
-        bottom: rem(-20);
-        left: -10%;
-		transition: all 0.3s ease;
-
-        @media screen and (min-width: $tablet) {
-            height: rem(40);
-        }
-
-        @media screen and (min-width: $tablet-landscape) {
-            height: rem(50);
-            bottom: rem(-30);
-        }
-    }
-
 	&.scrolled-up,
 	&.scrolled-down {
 		padding-bottom: rem(10);
@@ -178,9 +153,7 @@
 		}
 	}
 
-	//.header .menu (burger)
 	.menu {
-		// .header .menu__body
 		&-body,
 		&-body::before {
 			background-color: var(--body-color-brand);
@@ -206,7 +179,6 @@
 				overflow: unset;
 			}
 
-			// .header .menu-open
 			.menu-open & {
 				transform: translateX(0);
 
@@ -353,7 +325,7 @@
 						}
 
 						&:after {
-							border-top-color-brand: var(--secondary-color-brand);
+							border-top-color: var(--secondary-color-brand);
 							transform: scale(-1);
 						}
 
@@ -373,7 +345,7 @@
 					}
 
 					&:after {
-						border-top-color-brand: var(--secondary-color-brand);
+						border-top-color: var(--secondary-color-brand);
 						transform: scale(-1);
 					}
 

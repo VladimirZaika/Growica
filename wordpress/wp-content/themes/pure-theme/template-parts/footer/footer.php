@@ -20,7 +20,7 @@ $landingNavMenu = get_field('landing_nav_menu', $id);
  ?>
         <!-- Main end -->
         </main>
-            <footer class="footer<?= $customClass; ?>">
+            <footer class="footer<?= $customClass; ?> footer-brand">
                 <?php if ( $showBg ):
                     $suddenBgDesk = get_field('footer_bg_img_desk', $id);
                     $suddenBgMob = get_field('footer_bg_img_mob', $id);
@@ -34,7 +34,7 @@ $landingNavMenu = get_field('landing_nav_menu', $id);
                     get_template_part( 'components/image', null, $bgArgs );
                 endif; ?>
 
-                <div class="container footer-container">
+                <div class="container footer-container grid-container">
                     <div class="footer-wrapper">
                         <div class="footer-content-wrapper<?= $hideNavMenu ? ' footer-content-wrapper-full-width' : ''; ?>">
                             <div class="logo footer-logo">

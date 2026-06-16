@@ -3,6 +3,56 @@
     "title": "[SETTINGS]: Footer",
     "fields": [
         {
+            "key": "field_6a3175724d7b4",
+            "label": "Footer Switch",
+            "name": "footer_switch",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "On",
+            "ui_off_text": "Off",
+            "ui": 1
+        },
+        {
+            "key": "field_6a317989788ad",
+            "label": "Footer Style",
+            "name": "footer_style",
+            "aria-label": "",
+            "type": "true_false",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a3175724d7b4",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "message": "",
+            "default_value": 0,
+            "allow_in_bindings": 0,
+            "ui_on_text": "Center",
+            "ui_off_text": "Left Align",
+            "ui": 1
+        },
+        {
             "key": "field_686e490613702",
             "label": "Custom Class",
             "name": "footer_custom_class",
@@ -10,7 +60,15 @@
             "type": "text",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a3175724d7b4",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -31,7 +89,15 @@
             "type": "true_false",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a3175724d7b4",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -52,7 +118,20 @@
             "type": "image",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a3175724d7b4",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_685d15f27c460",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -78,7 +157,20 @@
             "type": "image",
             "instructions": "",
             "required": 0,
-            "conditional_logic": 0,
+            "conditional_logic": [
+                [
+                    {
+                        "field": "field_6a3175724d7b4",
+                        "operator": "==",
+                        "value": "1"
+                    },
+                    {
+                        "field": "field_685d15f27c460",
+                        "operator": "==",
+                        "value": "1"
+                    }
+                ]
+            ],
             "wrapper": {
                 "width": "",
                 "class": "",
@@ -116,14 +208,14 @@
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "missions"
+                "value": "post"
             }
         ],
         [
             {
                 "param": "post_type",
                 "operator": "==",
-                "value": "newsroom"
+                "value": "post"
             }
         ]
     ],
@@ -136,5 +228,8 @@
     "active": true,
     "description": "",
     "show_in_rest": 0,
-    "modified": 1752058139
+    "display_title": "",
+    "allow_ai_access": false,
+    "ai_description": "",
+    "modified": 1781627484
 }

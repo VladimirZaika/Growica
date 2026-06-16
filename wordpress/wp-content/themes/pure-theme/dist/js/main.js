@@ -31,16 +31,16 @@
   }
 
   document.addEventListener('DOMContentLoaded', function () {
-    var stickyHeader = /*#__PURE__*/function () {
-      function stickyHeader(headerSelector) {
-        _classCallCheck(this, stickyHeader);
+    var stickyHeaderBrand = /*#__PURE__*/function () {
+      function stickyHeaderBrand(headerSelector) {
+        _classCallCheck(this, stickyHeaderBrand);
         this.navbar = document.querySelector(headerSelector);
         this.lastScrollTop = 0;
         this.headerHeight = this.navbar.scrollHeight;
         window.addEventListener('scroll', this.onScroll.bind(this));
         window.addEventListener('load', this.onScroll.bind(this));
       }
-      return _createClass(stickyHeader, [{
+      return _createClass(stickyHeaderBrand, [{
         key: "onScroll",
         value: function onScroll() {
           var scroll = window.scrollY || document.documentElement.scrollTop;
@@ -61,7 +61,7 @@
       }]);
     }();
     if (document.querySelector('header')) {
-      new stickyHeader('.header');
+      new stickyHeaderBrand('.header');
       var header = document.querySelector('header');
       var hasChildrenItem = header.querySelectorAll('.menu-item-has-children');
       if (hasChildrenItem.length > 0) {
@@ -102,20 +102,20 @@
 
   document.addEventListener('DOMContentLoaded', function () {
     var navLinks = document.querySelectorAll('.header .menu-item a');
-    var bodyLockStatus = true;
-    var bodyLockToggle = function bodyLockToggle() {
+    var bodyLockBrandStatus = true;
+    var bodyLockBrandToggleBrand = function bodyLockBrandToggleBrand() {
       var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 500;
       if (document.documentElement.classList.contains('lock')) {
-        bodyUnlock(delay);
+        bodyUnlockBrand(delay);
       } else {
-        bodyLock(delay);
+        bodyLockBrand(delay);
       }
     };
-    var bodyUnlock = function bodyUnlock() {
+    var bodyUnlockBrand = function bodyUnlockBrand() {
       var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 500;
       var body = document.querySelector("body");
       var stickyHeader = document.querySelector("header._header-scroll");
-      if (bodyLockStatus) {
+      if (bodyLockBrandStatus) {
         var lock_padding = document.querySelectorAll("[data-lp]");
         setTimeout(function () {
           for (var index = 0; index < lock_padding.length; index++) {
@@ -128,17 +128,17 @@
           }
           document.documentElement.classList.remove("lock");
         }, delay);
-        bodyLockStatus = false;
+        bodyLockBrandStatus = false;
         setTimeout(function () {
-          bodyLockStatus = true;
+          bodyLockBrandStatus = true;
         }, delay);
       }
     };
-    var bodyLock = function bodyLock() {
+    var bodyLockBrand = function bodyLockBrand() {
       var delay = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : 500;
       var body = document.querySelector("body");
       var stickyHeader = document.querySelector("header._header-scroll");
-      if (bodyLockStatus) {
+      if (bodyLockBrandStatus) {
         var lock_padding = document.querySelectorAll("[data-lp]");
         for (var index = 0; index < lock_padding.length; index++) {
           var el = lock_padding[index];
@@ -149,17 +149,17 @@
           stickyHeader.style.right = (window.innerWidth - document.documentElement.scrollWidth) / 2 + 'px';
         }
         document.documentElement.classList.add("lock");
-        bodyLockStatus = false;
+        bodyLockBrandStatus = false;
         setTimeout(function () {
-          bodyLockStatus = true;
+          bodyLockBrandStatus = true;
         }, delay);
       }
     };
     (function menuInit() {
       if (document.querySelector(".icon-menu")) {
         document.addEventListener("click", function (e) {
-          if (bodyLockStatus && e.target.closest('.icon-menu')) {
-            bodyLockToggle();
+          if (bodyLockBrandStatus && e.target.closest('.icon-menu')) {
+            bodyLockBrandToggleBrand();
             document.documentElement.classList.toggle("menu-open");
           }
         });
@@ -167,7 +167,7 @@
           navLinks.forEach(function (link) {
             link.addEventListener('click', function () {
               if (document.documentElement.classList.contains('menu-open')) {
-                bodyLockToggle();
+                bodyLockBrandToggleBrand();
                 document.documentElement.classList.remove("menu-open");
               }
             });

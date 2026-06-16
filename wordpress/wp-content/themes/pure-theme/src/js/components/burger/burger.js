@@ -1,19 +1,19 @@
 document.addEventListener( 'DOMContentLoaded', () => {
     let navLinks = document.querySelectorAll('.header .menu-item a');
-    let bodyLockStatus = true;
-    let bodyLockToggle = (delay = 500) => {
+    let bodyLockBrandStatus = true;
+    let bodyLockBrandToggleBrand = (delay = 500) => {
         if (document.documentElement.classList.contains('lock')) {
-            bodyUnlock(delay);
+            bodyUnlockBrand(delay);
         } else {
-            bodyLock(delay);
+            bodyLockBrand(delay);
         }
     };
 
-    let bodyUnlock = (delay = 500) => {
+    let bodyUnlockBrand = (delay = 500) => {
         let body = document.querySelector("body");
         let stickyHeader = document.querySelector("header._header-scroll");
 
-        if (bodyLockStatus) {
+        if (bodyLockBrandStatus) {
             let lock_padding = document.querySelectorAll("[data-lp]");
 
             setTimeout(() => {
@@ -27,18 +27,18 @@ document.addEventListener( 'DOMContentLoaded', () => {
                 }
                 document.documentElement.classList.remove("lock");
             }, delay);
-            bodyLockStatus = false;
+            bodyLockBrandStatus = false;
             setTimeout(function () {
-                bodyLockStatus = true;
+                bodyLockBrandStatus = true;
             }, delay);
         }
     };
 
-    let bodyLock = (delay = 500) => {
+    let bodyLockBrand = (delay = 500) => {
         let body = document.querySelector("body");
         let stickyHeader = document.querySelector("header._header-scroll");
 
-        if (bodyLockStatus) {
+        if (bodyLockBrandStatus) {
             let lock_padding = document.querySelectorAll("[data-lp]");
 
             for (let index = 0; index < lock_padding.length; index++) {
@@ -54,10 +54,10 @@ document.addEventListener( 'DOMContentLoaded', () => {
 
             document.documentElement.classList.add("lock");
     
-            bodyLockStatus = false;
+            bodyLockBrandStatus = false;
             
             setTimeout(function () {
-                bodyLockStatus = true;
+                bodyLockBrandStatus = true;
             }, delay);
         }
     }
@@ -65,8 +65,8 @@ document.addEventListener( 'DOMContentLoaded', () => {
     (function menuInit() {
         if (document.querySelector(".icon-menu")) {
             document.addEventListener("click", function (e) {
-                if (bodyLockStatus && e.target.closest('.icon-menu')) {
-                    bodyLockToggle();
+                if (bodyLockBrandStatus && e.target.closest('.icon-menu')) {
+                    bodyLockBrandToggleBrand();
                     document.documentElement.classList.toggle("menu-open");
                 }
             });
@@ -75,7 +75,7 @@ document.addEventListener( 'DOMContentLoaded', () => {
                 navLinks.forEach(link => {
                     link.addEventListener('click', () => {
                         if (document.documentElement.classList.contains('menu-open')) {
-                            bodyLockToggle();
+                            bodyLockBrandToggleBrand();
                             document.documentElement.classList.remove("menu-open");
                         }
                     });

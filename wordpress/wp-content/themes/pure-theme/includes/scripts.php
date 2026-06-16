@@ -1,16 +1,12 @@
 <?php
 function brand_dynamic_styles() {
-    global $wp_query;
-
     $notFoundPageVer = filemtime( get_theme_file_path('dist/css/template/not-found/not-found.css') );
     
-    $styleVersion = filemtime( get_theme_file_path('dist/css/main.css') );
     $scriptVersion = filemtime( get_theme_file_path('dist/js/main.js') );
 
     wp_enqueue_style( 'generatepress-parent-style', get_template_directory_uri() . '/style.css', [], wp_get_theme( 'generatepress' )->get( 'Version' ) );
-    wp_enqueue_style( 'brand-portal-style', get_stylesheet_directory_uri() . '/style.css', [ 'generatepress-parent-style' ], wp_get_theme()->get( 'Version' ) );
+    wp_enqueue_style( 'brand-style', get_stylesheet_directory_uri() . '/style.css', [ 'generatepress-parent-style' ], wp_get_theme()->get( 'Version' ) );
 
-    wp_enqueue_style( 'brand-styles', get_theme_file_uri( 'dist/css/main.css' ), [ 'brand-portal-style' ], $styleVersion );
     wp_enqueue_script( 'brand-scripts', get_theme_file_uri( 'dist/js/main.js' ), [], $scriptVersion, true );
 
 
@@ -25,6 +21,8 @@ function brand_dynamic_styles() {
     $errorColor = get_theme_mod('error_color', '#C64D34');
     $successColor = get_theme_mod('success_color', '#61FF87');
     $optionalColor1 = get_theme_mod('optional_color_1', '#cbcbcb');
+    $bodyFont = get_theme_mod('body_font', 'Inter, sans-serif');
+    $headingFont = get_theme_mod('heading_font', 'Roboto, sans-serif');
 
     $customCss = "
         :root {
@@ -56,15 +54,15 @@ function brand_dynamic_styles() {
             --body-color-brand-30: rgba(" . hexToRgb($bodyColor) . ", 0.3);
             --body-color-brand-10: rgba(" . hexToRgb($bodyColor) . ", 0.1);
             --body-color-brand-5: rgba(" . hexToRgb($bodyColor) . ", 0.05);
-            
-            --error-color-brand: $errorColor;
 
+            --error-color-brand: $errorColor;
             --success-color-brand: $successColor;
-            
             --optional-color-brand-1: $optionalColor1;
+            --body-font: $bodyFont;
+            --heading-font: $headingFont;
         }";
 
-    wp_add_inline_style( 'brand-portal-style', $customCss );
+    wp_add_inline_style( 'brand-style', $customCss );
 };
 
 add_action('wp_enqueue_scripts', 'brand_dynamic_styles');

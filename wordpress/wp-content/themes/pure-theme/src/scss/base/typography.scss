@@ -16,7 +16,7 @@ h5,
 .h5,
 h6,
 .h6 {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--heading-font);
 	color: inherit;
 	font-weight: 600;
 	line-height: 130%;
@@ -124,11 +124,12 @@ a {
 p,
 span {
     color: inherit;
+    font-family: var(--body-font);
 }
 
 a,
 button {
-    font-family: 'Roboto', sans-serif;
+    font-family: var(--body-font);
 }
 
 strong {
