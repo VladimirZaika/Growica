@@ -504,37 +504,6 @@ a.button {
     }
 }
 
-.container,
-.yoast-breadcrumbs {
-    width: 100%;
-    max-width: $container-width;
-    position: relative;
-
-    padding: 0 rem(16);
-
-    @media screen and (min-width: $tablet) {
-        padding: 0 rem(24);
-    }
-
-    @media screen and (min-width: $tablet-landscape) {
-        padding: 0 rem(32);
-    }
-}
-
-.container {
-    &.container-full-width {
-        width: 100%;
-        max-width: none;
-        min-width: 100%;
-    }
-}
-
-.container-full-width {
-    width: 100%;
-    max-width: none;
-    min-width: 100%;
-}
-
 section {
     @include flex_center;
     width: 100%;
