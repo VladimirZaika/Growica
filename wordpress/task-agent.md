@@ -1,57 +1,69 @@
-# Задача: Уникализация дочерней wordpress темы wordpress\wp-content\themes\pure-theme (pure-theme) 
+# Task: Uniqueization of child wordpress theme wordpress\wp-content\themes\pure-theme (pure-theme)
 
-## Контекст задачи
-Мы кастомизируем дочернюю тему `pure-theme`. Необходимо уникализировать дочернюю тему, обновить названия css классов в scss файлах и php шаблонах, обновить названия функций js и php
+## Task Context
 
-**Стек:** Docker, WordPress, Advanced Custom Fields (ACF Pro), PHP 8.1, JS, SCSS, MySQL.
+We are customizing the child theme `pure-theme`. It is necessary to uniqueize the child theme, update css class names in scss files and php templates, update js and php function names
 
----
-
-## Критерии приемки (Definition of Done)
-- [ ] Группа полей ACF зарегистрирована через acf-json и хранятся по пути `wordpress\wp-content\themes\pure-theme\acf-json`.
-- [ ] Ключ key для каждой группы зарегестрированных json-acfполей должны быть обновлены в папке `wordpress\wp-content\themes\pure-theme\acf-json`.
-- [ ] Во всех .scss, .css, .js, .php, .html, .json, .txt файлах нужно заменить placeholder brand на актуальный, настоящий brand.
+**Stack:** Docker, WordPress, Advanced Custom Fields (ACF Pro), PHP 8.1, JS, SCSS, MySQL.
 
 ---
 
-## Placeholders и их значения
-- `brand` => `nexus`.
-- `domain` => `https://nexus.ai`.
-- `gtag_id` => `G-444AW5568`.
+## Acceptance Criteria (Definition of Done)
+
+* [ ] ACF field group is registered via acf-json and stored at the path `wordpress\wp-content\themes\pure-theme\acf-json`.
+* [ ] The key for each group of registered json-acf fields must be updated in the folder `wordpress\wp-content\themes\pure-theme\acf-json`.
+* [ ] In all .scss, .css, .js, .php, .html, .json, .txt files, the placeholder brand must be replaced with the actual, real brand.
 
 ---
 
-## Пошаговый план реализации (Инструкция для ИИ)
+## Placeholders and their values
 
-### Шаг 1: Работа с полями 
+* `brand` => `nexus`.
+* `domain` => `https://nexus.ai`.
+* `gtag_id` => `G-444AW5568`.
+
+---
+
+## Step-by-step implementation plan (Instructions for AI)
+
+### Step 1: Working with fields
+
 ACF
-- [ ] Открой файл `wordpress\wp-content\themes\pure-theme\acf-json`.
-- [ ] Обнови названия json файлов и ключей `key` внутри каждого файла, для уникализации групп полей acf.
 
-### Шаг 2: Замена всех placeholder на актуальные значения
-- [ ] Переименуй название папки с темой `pure-theme` по пути `wordpress\wp-content\themes\pure-theme` на название `nexus-theme`.
-- [ ] внутри темы `wordpress\wp-content\themes\pure-theme`, новый путь которой будет выглядеть теперь так `wordpress\wp-content\themes\nexus-theme` выполни следющие действия. Во всех файлах темы замени placeholders `brand`, `domain`, `gtag_id` на актуальные значения из раздела ## Placeholders и их значения.
-- [ ] Уникализируй файл `style.css` по пути `wordpress\wp-content\themes\pure-theme\style.css`. Уникализируй и обнови следующие значения:
-  - `Theme Name:` укажи актуальный brand
-  - `Theme URI:` укажи актуальный domain
-  - `Description:` сгенерируй короткое описание до 100 символов.
-  - `Author:` сгенерируй имя автора.
-  - `Author URI:` сгенерируй ссылку на сайт автора. 
-  - `Template:` укажи название родительской темы.
-  - `Version:` сгенерируй версию темы.
-  - `Text Domain:` укажи актуальный brand
+* [ ] Open the file `wordpress\wp-content\themes\pure-theme\acf-json`.
+* [ ] Update the names of json files and `key` keys inside each file to uniqueize acf field groups.
 
-### Шаг 3: Стилизация (CSS)
-- [ ] Открой файл `wp-content/themes/nexus-portal/style.css`.
-- [ ] Добавь стили для таблицы в самый конец файла:
-  - Границы таблицы, отступы (`padding: 12px`), чередующийся фон строк (`:nth-child(even)`).
-  - Названия характеристик должны быть жирными.
-  - Используй CSS-переменные родительской темы для цветов, если они доступны.
+### Step 2: Replacing all placeholders with actual values
+
+* [ ] Rename the theme folder name `pure-theme` at the path `wordpress\wp-content\themes\pure-theme` to the name `nexus-theme`.
+* [ ] inside the `wordpress\wp-content\themes\pure-theme` theme, the new path of which will now look like `wordpress\wp-content\themes\nexus-theme`, perform the following actions. In all theme files, replace placeholders `brand`, `domain`, `gtag_id` with actual values from the section ## Placeholders and their values.
+* [ ] Uniqueize the `style.css` file at the path `wordpress\wp-content\themes\pure-theme\style.css`. Uniqueize and update the following values:
+* `Theme Name:` specify the actual brand
+* `Theme URI:` specify the actual domain
+* `Description:` generate a short description up to 100 characters.
+* `Author:` generate author name.
+* `Author URI:` generate a link to the author's website.
+* `Template:` specify the name of the parent theme.
+* `Version:` generate theme version.
+* `Text Domain:` specify the actual brand
+
+
+
+### Step 3: Styling (CSS)
+
+* [ ] Open the file `wp-content/themes/nexus-portal/style.css`.
+* [ ] Add styles for the table to the very end of the file:
+* Table borders, paddings (`padding: 12px`), alternating row background (`:nth-child(even)`).
+* Specification names must be bold.
+* Use CSS variables of the parent theme for colors, if available.
+
+
 
 ---
 
-## Ограничения и правила для Агента
-- **Безопасность:** Обязательно очищай вывод данных через `esc_html()` для текстовых полей внутри таблицы.
-- **Стиль кода:** Придерживайся WordPress Web Dev Standards (пробелы внутри круглых скобок: `if ( ! empty( $var ) )`).
-- **Запрещено:** Не изменяй файлы родительской темы. Работай строго внутри папки дочерней темы `pure-theme`.
-- **Логирование:** Если плагин ACF не активен, функция не должна вызывать Fatal Error, делай мягкий `return $content`.
+## Constraints and rules for the Agent
+
+* **Security:** Be sure to sanitize data output via `esc_html()` for text fields inside the table.
+* **Code Style:** Adhere to WordPress Web Dev Standards (spaces inside parentheses: `if ( ! empty( $var ) )`).
+* **Prohibited:** Do not modify parent theme files. Work strictly inside the folder of the child theme `pure-theme`.
+* **Logging:** If the ACF plugin is not active, the function should not cause a Fatal Error, do a soft `return $content`.
