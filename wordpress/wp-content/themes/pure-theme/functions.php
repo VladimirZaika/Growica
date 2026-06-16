@@ -1,7 +1,7 @@
 <?php
 
 /**
- * brand functions
+ * Brand functions
  *
  * @package brand
  */
