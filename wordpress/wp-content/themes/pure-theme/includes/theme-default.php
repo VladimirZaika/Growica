@@ -1,0 +1,160 @@
+<?php
+add_action(
+	'after_setup_theme',
+	function () {
+		load_theme_textdomain( 'brand', get_theme_file_uri( 'languages' ) );
+
+		add_theme_support( 'automatic-feed-links' );
+		add_theme_support( 'title-tag' );
+		add_theme_support( 'post-thumbnails' );
+		add_theme_support(
+			'html5',
+			[
+				'search-form',
+				'comment-form',
+				'comment-list',
+				'gallery',
+				'caption',
+			]
+		);
+
+		add_theme_support(
+			'post-formats',
+			[
+				'aside',
+				'image',
+				'video',
+				'quote',
+				'link',
+			]
+		);
+
+		// Add theme support for selective refresh for widgets.
+		add_theme_support( 'customize-selective-refresh-widgets' );
+
+		/**
+		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
+		 */
+		add_theme_support(
+			'custom-logo',
+			[
+				'height'      => 200,
+				'width'       => 50,
+				'flex-width'  => true,
+				'flex-height' => true,
+			]
+		);
+
+		register_nav_menus(
+			[
+				'primary' => __( 'Primary Menu', 'brand' ),
+			]
+		);
+	}
+);
+
+/**
+ * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
+ */
+add_action(
+	'after_setup_theme',
+	function () {
+		if ( ! isset( $GLOBALS['content_width'] ) ) {
+			$GLOBALS['content_width'] = apply_filters( 'brand_content_width', 1236 );
+		}
+	},
+	0
+);
+
+function brand_customize_register($wp_customize) {
+    // Primary color
+    $wp_customize->add_setting('primary_color', [
+        'default'   => '#305CDE',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'primary_color', [
+        'label'    => __('Primary Color', 'brand'),
+        'section'  => 'colors',
+        'settings' => 'primary_color',
+    ]));
+
+    // Secondary color
+    $wp_customize->add_setting('secondary_color', [
+        'default'   => '#88A0B8',
+        'transport' => 'refresh',
+    ]);
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'secondary_color', [
+        'label'    => __('Secondary Color', 'brand'),
+        'section'  => 'colors',
+        'settings' => 'secondary_color',
+    ]));
+
+    // Text color
+    $wp_customize->add_setting('text_color', [
+        'default'   => '#ffffff',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'text_color', [
+        'label'    => __('Text Color', 'brand'),
+        'section'  => 'colors',
+        'settings' => 'text_color',
+    ]));
+
+    // Body color
+    $wp_customize->add_setting('body_color', [
+        'default'   => '#1e1e1e',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'body_color', [
+        'label'    => __('Body Color', 'brand'),
+        'section'  => 'colors',
+        'settings' => 'body_color',
+    ]));
+
+    // Error color
+    $wp_customize->add_setting('error_color', [
+        'default'   => '#C64D34',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'error_color', [
+        'label'    => __('Error Color', 'brand'),
+        'section'  => 'colors',
+        'settings' => 'error_color',
+    ]));
+
+    // Success color
+    $wp_customize->add_setting('success_color', [
+        'default'   => '#61FF87',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'green_color', [
+        'label'    => __('Success Color', 'brand'),
+        'section'  => 'colors',
+        'settings' => 'success_color',
+    ]));
+
+    // Optional color #1
+    $wp_customize->add_setting('optional_color_1', [
+        'default'   => '#cbcbcb',
+        'transport' => 'refresh',
+    ]);
+
+    $wp_customize->add_control(new WP_Customize_Color_Control($wp_customize, 'optional_color_1', [
+        'label'    => __('Optional Color #1', 'brand'),
+        'section'  => 'colors',
+        'settings' => 'optional_color_1',
+    ]));
+}
+
+add_action('customize_register', 'brand_customize_register');
