@@ -1,15 +1,39 @@
 <?php
 
 /**
- * Deregister jQuery
+ * Frontend performance optimizations
  */
-add_action( 'wp_enqueue_scripts', function() {
+add_action( 'wp_enqueue_scripts', 'brand_deregister_frontend_scripts', 20 );
+function brand_deregister_frontend_scripts() {
     if ( ! is_admin() ) {
         wp_deregister_script( 'jquery' );
         wp_deregister_script( 'jquery-core' );
         wp_deregister_script( 'jquery-migrate' );
+        wp_deregister_script( 'wp-embed' );
     }
-}, 20 );
+}
+
+add_action( 'init', 'brand_disable_frontend_features', 10 );
+function brand_disable_frontend_features() {
+    if ( is_admin() ) {
+        return;
+    }
+
+    remove_action( 'wp_head', 'print_emoji_detection_script', 7 );
+    remove_action( 'admin_print_scripts', 'print_emoji_detection_script' );
+    remove_action( 'wp_print_styles', 'print_emoji_styles' );
+    remove_action( 'admin_print_styles', 'print_emoji_styles' );
+    add_filter( 'emoji_svg_url', '__return_false' );
+
+    remove_action( 'wp_head', 'rest_output_link_wp_head' );
+    remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
+    remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+    add_filter( 'embed_oembed_discovery_links', '__return_false' );
+
+    remove_action( 'wp_head', 'rsd_link' );
+    remove_action( 'wp_head', 'wlwmanifest_link' );
+    remove_action( 'wp_head', 'wp_generator' );
+}
 
 /**
  * Replace all macros entries in the string:
