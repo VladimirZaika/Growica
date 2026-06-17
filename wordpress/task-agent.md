@@ -35,6 +35,7 @@ We are customizing the child theme `pure-theme`. It is necessary to uniqueize th
 
 ### Step 2: Replacing all placeholders with actual values
 
+* [ ] The `brand` placeholder can be a standalone word or part of a compound word—for example, connected using `-` or `_`, or as part of a `camelCase` term. In all these cases, the `brand` placeholder must be replaced with the actual value, taking case into account.
 * [ ] Be sure to maintain proper capitalization when replacing placeholders. If a placeholder begins with a capital letter, its value must also begin with a capital letter. For example, if the placeholder is `brand`, the value should be `nexus`; if the placeholder is `Brand`,
 * [ ] Rename the theme folder name `pure-theme` at the path `wordpress\wp-content\themes\pure-theme` to the name `nexus-theme`.
 * [ ] Update all lines containing `src` that include `pure-theme` and replace them with `nexus-theme`.
@@ -55,6 +56,12 @@ We are customizing the child theme `pure-theme`. It is necessary to uniqueize th
 
 * [ ] Update the `src` for fonts in the file `wordpress\wp-content\themes\pure-theme\src\scss\base\fonts.scss`. The `src` for fonts should now use the updated name of the child theme, `nexus-theme`, instead of `pure-theme`. For example, `/wp-content/themes/pure-theme/fonts/Raleway/Raleway-Regular.woff2` should be changed to `/wp-content/themes/nexus-theme/fonts/Raleway/Raleway-Regular.woff2`.
  * [ ] Update all spacing values: `gap, margin, margin-top, margin-bottom, margin-left, margin-right, padding, padding-top, padding-bottom, padding-left, padding-right`. You need to change the values by randomly decreasing or increasing the spacing by `10–15%` of the current value.  All values must be wrapped in the `rem()` function, for example, `rem(24)`. All spacing values are located in the `scss` files within the parent folder at the path `wordpress\wp-content\themes\pure-theme\src\scss`.
+
+### Step 4: Default colors pdate
+
+* [ ] Update the default colors in the file located at `wordpress\wp-content\themes\pure-theme\includes\theme-default.php` within the `$wp_customize->add_setting()` methods.
+* [ ] Specify colors in `hex` format.
+* [ ] In the file `wordpress\wp-content\themes\pure-theme\includes\scripts.php`, also update the default colors in the `get_theme_mod();` functions. Colors must match the keys. For example, the color with the key `primary_color` from the file `wordpress\wp-content\themes\pure-theme\includes\scripts.php` must match the color with the key `primary_color` from the file `wordpress\wp-content\themes\pure-theme\includes\theme-default.php`.
 
 ---
 
