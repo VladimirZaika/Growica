@@ -10,15 +10,10 @@
 *.gz
 *.sql
 *.tar
-/wp-content/plugins/wp-file-manager
 license.txt
 readme.html
 web.config
 *.log
-wp-content/backup-db/
-wp-content/backups/
-wp-content/cache/
-wp-content/upgrade/
 .tmb
 **/node_modules/
 wp-cli.phar
@@ -28,4 +23,11 @@ wp-cli.phar
 # Track all files in the wordpress directory, except local config
 !/wordpress/
 !/wordpress/**
+/wordpress/**/node_modules/
+/wordpress/**/node_modules/*
 /wordpress/wp-config.php
+/wordpress/wp-content/plugins/wp-file-manager
+/wordpress/wp-content/backup-db/
+/wordpress/wp-content/backups/
+/wordpress/wp-content/cache/
+/wordpress/wp-content/upgrade/
