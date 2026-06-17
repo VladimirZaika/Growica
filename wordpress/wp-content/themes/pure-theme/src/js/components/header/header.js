@@ -35,10 +35,10 @@ document.addEventListener( 'DOMContentLoaded', () => {
         }
     };
 
-    if (document.querySelector('header')) {
+    if (document.querySelector('.wrapper header')) {
         new stickyHeaderBrand('.header');
 
-        let header = document.querySelector('header');
+        let header = document.querySelector('.wrapper header');
         let hasChildrenItem = header.querySelectorAll('.menu-item-has-children');
 
         if (hasChildrenItem.length > 0) {

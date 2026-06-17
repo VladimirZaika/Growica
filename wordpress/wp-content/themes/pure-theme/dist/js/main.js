@@ -60,9 +60,9 @@
         }
       }]);
     }();
-    if (document.querySelector('header')) {
+    if (document.querySelector('.wrapper header')) {
       new stickyHeaderBrand('.header');
-      var header = document.querySelector('header');
+      var header = document.querySelector('.wrapper header');
       var hasChildrenItem = header.querySelectorAll('.menu-item-has-children');
       if (hasChildrenItem.length > 0) {
         hasChildrenItem.forEach(function (item) {
