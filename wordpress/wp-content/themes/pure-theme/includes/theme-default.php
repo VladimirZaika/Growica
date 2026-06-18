@@ -1,3 +1,4 @@
+@ -1,210 +0,0 @@
 <?php
 add_action(
 	'after_setup_theme',

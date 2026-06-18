@@ -176,9 +176,6 @@ function brand_customize_register($wp_customize) {
             'Inter, sans-serif'      => 'Inter',
             'Roboto, sans-serif'     => 'Roboto',
             'Raleway, sans-serif'    => 'Raleway',
-            'Montserrat, sans-serif' => 'Montserrat',
-            'Merriweather, serif'    => 'Merriweather',
-            'Georgia, serif'         => 'Georgia',
         ],
     ]);
 
@@ -196,9 +193,6 @@ function brand_customize_register($wp_customize) {
             'Inter, sans-serif'      => 'Inter',
             'Roboto, sans-serif'     => 'Roboto',
             'Raleway, sans-serif'    => 'Raleway',
-            'Montserrat, sans-serif' => 'Montserrat',
-            'Merriweather, serif'    => 'Merriweather',
-            'Georgia, serif'         => 'Georgia',
         ],
     ]);
 
