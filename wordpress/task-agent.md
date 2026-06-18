@@ -12,15 +12,15 @@ We are customizing the child theme `pure-theme`. It is necessary to uniqueize th
 
 * [ ] ACF field group is registered via acf-json and stored at the path `wordpress\wp-content\themes\pure-theme\acf-json`.
 * [ ] The key for each group of registered json-acf fields must be updated in the folder `wordpress\wp-content\themes\pure-theme\acf-json`.
-* [ ] In all .scss, .css, .js, .php, .html, .json, .txt files, the placeholder `vibe`, `gtag_id`, `domain` must be replaced with the actual, real vibe.
+* [ ] In all .scss, .css, .js, .php, .html, .json, .txt files, the placeholder `brand`, `gtag_id`, `domain` must be replaced with the actual, real brand.
 * [ ] All indentations in the SCSS styles located at `wordpress\wp-content\themes\pure-theme\src\scss` must be updated.
-* [ ] The theme name must be updated to the current one. All paths must reflect the current theme name; for example, it used to be `wordpress\wp-content\themes\vibe-theme\src\scss` and is now `wordpress\wp-content\themes\pure-theme\src\scss`.
+* [ ] The theme name must be updated to the current one. All paths must reflect the current theme name; for example, it used to be `wordpress\wp-content\themes\pure-theme\src\scss` and is now `wordpress\wp-content\themes\pure-theme\src\scss`.
 
 ---
 
 ## Placeholders and their values
 
-* `vibe` => `vibe`.
+* `brand` => `vibe`.
 * `domain` => `https://vibe.ai`.
 * `gtag_id` => `G-444AW5568`.
 
@@ -35,20 +35,20 @@ We are customizing the child theme `pure-theme`. It is necessary to uniqueize th
 
 ### Step 2: Replacing all placeholders with actual values
 
-* [ ] The `vibe` placeholder can be a standalone word or part of a compound word—for example, connected using `-` or `_`, or as part of a `camelCase` term. In all these cases, the `vibe` placeholder must be replaced with the actual value, taking case into account.
-* [ ] Be sure to maintain proper capitalization when replacing placeholders. If a placeholder begins with a capital letter, its value must also begin with a capital letter. For example, if the placeholder is `vibe`, the value should be `vibe`; if the placeholder is `Brand`,
+* [ ] The `brand` placeholder can be a standalone word or part of a compound word—for example, connected using `-` or `_`, or as part of a `camelCase` term. In all these cases, the `brand` placeholder must be replaced with the actual value, taking case into account.
+* [ ] Be sure to maintain proper capitalization when replacing placeholders. If a placeholder begins with a capital letter, its value must also begin with a capital letter. For example, if the placeholder is `brand`, the value should be `brand`; if the placeholder is `Brand`,
 * [ ] Rename the theme folder name `pure-theme` at the path `wordpress\wp-content\themes\pure-theme` to the name `vibe-theme`.
 * [ ] Update all lines containing `src` that include `pure-theme` and replace them with `vibe-theme`.
-* [ ] inside the `wordpress\wp-content\themes\pure-theme` theme, the new path of which will now look like `wordpress\wp-content\themes\vibe-theme`, perform the following actions. In all theme files, replace placeholders `vibe`, `domain`, `gtag_id` with actual values from the section ## Placeholders and their values.
+* [ ] inside the `wordpress\wp-content\themes\pure-theme` theme, the new path of which will now look like `wordpress\wp-content\themes\vibe-theme`, perform the following actions. In all theme files, replace placeholders `brand`, `domain`, `gtag_id` with actual values from the section ## Placeholders and their values.
 * [ ] Uniqueize the `style.css` file at the path `wordpress\wp-content\themes\pure-theme\style.css`. Uniqueize and update the following values:
-  * `Theme Name:` specify the actual vibe
+  * `Theme Name:` specify the actual brand
   * `Theme URI:` specify the actual domain
   * `Description:` generate a short description up to 100 characters.
   * `Author:` generate author name.
   * `Author URI:` generate a link to the author's website.
   * `Template:` specify the name of the parent theme.
   * `Version:` generate theme version.
-  * `Text Domain:` specify the actual vibe
+  * `Text Domain:` specify the actual brand
 
 
 
