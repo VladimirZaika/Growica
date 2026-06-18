@@ -163,3 +163,34 @@ function custom_block_category( $categories, $post ) {
 }
 
 add_filter( 'block_categories', 'custom_block_category', 10, 2);
+
+/**
+ * Enqueue block styles
+ */
+function vibe_enqueue_custom_blocks_styles() {
+    $hero_rel_path = 'dist/css/blocks/block-hero/block-hero.css';
+    $hero_full_path = get_theme_file_path( $hero_rel_path );
+    
+    if ( file_exists( $hero_full_path ) ) {
+        wp_enqueue_style(
+            'block-vibe-hero-style', 
+            get_stylesheet_directory_uri() . '/' . $hero_rel_path, 
+            [], 
+            filemtime( $hero_full_path )
+        );
+    }
+
+    $cta_rel_path = 'dist/css/blocks/block-cta/block-cta.css';
+    $cta_full_path = get_theme_file_path( $cta_rel_path );
+    
+    if ( file_exists( $cta_full_path ) ) {
+        wp_enqueue_style(
+            'block-vibe-cta-style', 
+            get_stylesheet_directory_uri() . '/' . $cta_rel_path, 
+            [], 
+            filemtime( $cta_full_path )
+        );
+    }
+}
+
+add_action( 'enqueue_block_assets', 'vibe_enqueue_custom_blocks_styles', 100 );

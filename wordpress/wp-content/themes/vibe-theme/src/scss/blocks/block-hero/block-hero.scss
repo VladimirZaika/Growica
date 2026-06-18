@@ -4,9 +4,7 @@
 @use "sass:math";
 
 .section-hero-vibe {
-    min-height: 100vh !important;
-    height: 100vh !important;
-    max-height: unset !important;
+    padding-top: 0;
 
     @media screen and (min-width: $tablet) {
         padding: rem(50) 0;

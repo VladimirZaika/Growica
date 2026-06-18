@@ -4,7 +4,7 @@
 @use "sass:math";
 
 .section-cta-vibe {
-    .cta-container {
+    .cta-vibe-container {
         @include flex_center;
         flex-direction: column;
         width: 100%;
@@ -50,7 +50,7 @@
         width: 100%;
         flex-direction: column;
         padding: rem(20);
-        border: rem(2) dashed var(--primary-color-vibe);
+        border: rem(2) solid var(--text-color-vibe);
 
         @media screen and (min-width: $tablet) {
             padding: rem(32);
